@@ -25,7 +25,6 @@ class handler(BaseHTTPRequestHandler):
                 value = data.get('value', 'N/A')
                 timestamp = data.get('timestamp', datetime.now().isoformat())
                 
-                # Формируем сообщение
                 message = f"""📊 <b>НОВЫЙ РЕЗУЛЬТАТ РУЛЕТКИ</b>
 
 📱 Номер: <code>{phone}</code>
@@ -33,7 +32,6 @@ class handler(BaseHTTPRequestHandler):
 💰 Значение: <b>{value}</b>
 ⏰ Время: <code>{timestamp}</code>"""
                 
-                # Отправляем в Telegram
                 try:
                     response = requests.post(
                         f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
